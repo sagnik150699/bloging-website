@@ -6,12 +6,13 @@ class Variables {
     return Card(
       color: cardColor,
       elevation: 0,
-      child: Text(
-        str,
-        textAlign: TextAlign.center,
-        style: GoogleFonts.oswald(
-            fontSize: size,
-            color: color),
+      child: FittedBox(
+        fit: BoxFit.contain,
+        child: Text(
+          str,
+          textAlign: TextAlign.center,
+          style: GoogleFonts.oswald(fontSize: size, color: color),
+        ),
       ),
     );
   }
