@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'component.dart';
 import 'package:google_fonts/google_fonts.dart';
-//hellos
+//hellosss
 class Mobile extends StatefulWidget {
   @override
   _MobileState createState() => _MobileState();
