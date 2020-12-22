@@ -103,30 +103,29 @@ class _MobileState extends State<Mobile> {
                 pinned: true,
                 //responsive flexible spaceBar
                 flexibleSpace: FlexibleSpaceBar(
-                  titlePadding: EdgeInsets.only(bottom: changeCard? 7:2),
+                  titlePadding: EdgeInsets.only(bottom: 7),
                   centerTitle: false,
                   title:
-                      //changeCard?
+                      changeCard?
                       Align(
                     alignment: Alignment.bottomRight,
                     child: Container(
-                      width: changeCard
-                          ? categoryWidth / 2.3
-                          : categoryWidth / 3.2,
+                      width: categoryWidth / 2.3,
                       child: variables.cards(
-                          changeCard ? categoryWidth / 13 : categoryWidth / 19,
+                         categoryWidth / 13,
                           Colors.white,
                           "Krala Murnau",
                           Colors.black),
                     ),
-                  ),
-                  // : Align(
-                  //     alignment: Alignment.bottomCenter,
-                  //     child: Container(
-                  //       child: variables.cards(categoryWidth / 19,
-                  //           Colors.white, "Krala Murnau", Colors.black),
-                  //     ),
-                  //   ),
+                  )
+                  : Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Container(
+                        width: categoryWidth/3.2,
+                        child: variables.cards(categoryWidth / 19,
+                            Colors.white, "Krala Murnau", Colors.black),
+                      ),
+                    ),
                   background: CarouselSlider(
                       items: Variables().item,
                       options: CarouselOptions(
@@ -147,7 +146,44 @@ class _MobileState extends State<Mobile> {
               ),
             ];
           },
-          body: Text("Hello"),
+          body: ListView(
+              children: <Widget>[
+          Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                //Responsive icon search
+                Expanded(
+                  child: Icon(
+                    Icons.search,
+                    size: categoryWidth / 10,
+                  ),
+                ),
+                //Responsive private investigator
+                Align(
+                  alignment: Alignment.topRight,
+                  child: Column(
+                    children: <Widget>[
+                      Card(
+                        shadowColor: Colors.black,
+                        elevation: 0,
+                        child: Text(
+                          "Private Investigator",
+                          style: GoogleFonts.sedgwickAveDisplay(
+                              fontSize: categoryWidth / 11),
+                        ),
+                      ),
+                      //Responsive city
+                      Container(
+                          child: Text("Current Location: Berlin",
+                              style: GoogleFonts.inconsolata(
+                                  fontSize: categoryWidth / 28,
+                                  textStyle:
+                                  TextStyle(color: Colors.black45)))),
+                    ],
+                  ),
+                ),
+              ]),
+        ])
         ),
       ),
     );
